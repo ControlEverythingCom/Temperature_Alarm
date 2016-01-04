@@ -1,13 +1,15 @@
 # About
 
-This Library is intended for use with VCNL4010 Proximity and Ambient Light Sensor with Infrared Emitter I²C Mini Module.
+This Library is intended to be used in conjunction with the Control Anything article Temperature_Alarm.
 
-The intention of this library is to make use of the VCNL4010 Proximity and Ambient Light Sensor with Infrared Emitter I²C Mini Module with Particle development web IDE as simple as possible for users.
+The intention of this library is to make use of the SI7020-A20 Temperature/Humidity Sensor and PCA9536_I2CBZ I²C Mini Modules with Particle development web IDE as simple as possible for users.
 ###Developer information
 NCD has been designing and manufacturing computer control products since 1995.  We have specialized in hardware design and manufacturing of Relay controllers for 20 years.  We pride ourselves as being the industry leader of computer control relay products.  Our products are proven reliable and we are very excited to support Particle.  For more information on NCD please visit www.controlanything.com
 
 ###Requirements
-- VCNL4010 Proximity and Ambient Light Sensor with Infrared Emitter I²C Mini Module
+- SI7020-A20 I²C Humidity and Temperature Sensor ±4%RH ±.4°C I²C Mini Module
+- PCA9536 I²C Digital 3-Channel Input Output with Buzzer I²C Mini Module
+- I²C Shield for Particle Photon
 - Particle Core/Photon module
 - Knowledge base for developing and programming with Particle Core/Photon modules.
 
@@ -16,50 +18,20 @@ NCD has been designing and manufacturing computer control products since 1995.  
 
 ### How to use this library
 
-The libary must be imported into your application.  This can be done through the Particle WEB IDE by selecting Libraries, then select the VCNL4010.  Click Include in App button.  Select the App you want to include the library in.  Finally click Add to this app.  For more information see [Particle's documentation] [sparkIncludeLibrary].
+This is a fully implemented Library and is intended to be used as is.  Users may modify and use the library in any way they see fit.  The intended use is to search Community Libraries under Particle's WEB IDE for Temperature_Alarm.  Once found make sure the application tab is selected, then click Use This Example button on the left.  Then flash the firmware into your Particle Module.  For more information see [Particle's documentation] [sparkIncludeLibrary].
 
-### Example use
+### What it does
 
-Once the Library is included in your applicaiton you should see an include statement at the top like this:
-```cpp
-//This #include statement was automatically added by the Particle IDE.
-#include "VCNL4010/VCNL4010.h"
-```
+This library does two things.  It monitors the temperature using the SI7020-A20 temperature sensor.  Secondly it turns a buzzer on to indicate an alarm situation.  The alarm can trip when a temperature gets too high or too low. 
 
-Now you need to instanciate an object of the library for use in your application like this:
-```cpp
-VCNL4010 sensor;
-```
+The firmware publishes a function called AlarmLimit which takes a string argument.  This argument sets the alarm limit to turn the buzzer on.  The formwat for the alarm is for example: 
+high;200.00
+low;32.00
+The first part of the argument indicates whether the alarm should trip when the temperature is above a limit or below a limit.  If high is passed as the first part the alarm will turn on when the temperature gets too high.  If low is passed as the first part the alarm will turn off when the temperature gets too low.
+The second part of the argument is the temperature limit.  This should be a decimal formatted temperature such as 75.00
+The first and second part of the arguments should always be seperated by a semi-colon as shown in the examples above.
 
-Here is an example use case for the class:
-```cpp
-// This #include statement was automatically added by the Particle IDE.
-#include "VCNL4010/VCNL4010.h"
-VCNL4010 sensor;
-
-void setup() {
-    Serial.begin(115200);
-    sensor.initialize();
-}
-
-void loop() {
-    Serial.print("Lux: ");
-    Serial.println(sensor.ambientLight());
-}
-```
-
-###Public accessible methods
-```cpp
-void initialize();
-```
->Must be called first before using the object.  This method should also be called any time communication with the controller is lost or broken to recover communication.
-
-
-```cpp
-void ambientLight();
-```
->This method returns the ambient light measurement in lux(?).
-
+This firmware also publishes the current temperature as a variable on Particle's server.
 
 License
 ----
