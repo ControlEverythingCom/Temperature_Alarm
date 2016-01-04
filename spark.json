@@ -1,0 +1,7 @@
+{
+    "name": "SI7020_I2CBZ_Temp_Alarm",
+    "version": "1.0.0",
+    "author": "Travis Elliott <travis@controleverything.com>",
+    "license": "GNU",
+    "description": "Library serves as example for article SI7020_I2CBZ_Temp_Alarm on controleverything.com"
+}
