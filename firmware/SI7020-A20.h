@@ -1,5 +1,3 @@
-#include "application.h"
-
 class SI7020_A20{
 public:
     double temperatureC();

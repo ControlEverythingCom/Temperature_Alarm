@@ -1,5 +1,3 @@
-#include "application.h"
-
 class I2CBZ{
 public:
     bool initialize(int directionReg);

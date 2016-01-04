@@ -1,5 +1,6 @@
 #include "SI7020_A20.h"
 #include "spark_wiring_usbserial.h"
+#include "spark_wiring_i2c.h"
 
 double SI7020_A20::temperatureC(){
     int raw = getRawTemperatureReading();
