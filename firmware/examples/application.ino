@@ -38,6 +38,8 @@ void loop() {
         Serial.println(tempF > alarmLimit);
         if (tempF > alarmLimit){
             buzzer.buzzer(1);
+            delay(100);
+            buzzer.buzzer(0);
         }else{
             buzzer.buzzer(0);
         }
@@ -52,6 +54,8 @@ void loop() {
         Serial.println(tempF < alarmLimit);
         if (tempF < alarmLimit){
             buzzer.buzzer(1);
+            delay(100);
+            buzzer.buzzer(0);
         }else{
             buzzer.buzzer(0);
         }
