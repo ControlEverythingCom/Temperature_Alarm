@@ -1,6 +1,7 @@
 #include "I2CBZ.h"
 #include "spark_wiring_i2c.h"
 #include "spark_wiring_usbserial.h"
+#include "spark_wiring_constants.h"
 
 bool I2CBZ::initialize(int directionReg){
     Wire.begin();
