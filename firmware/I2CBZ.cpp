@@ -14,6 +14,17 @@ bool I2CBZ::initialize(int directionReg){
         return false;
     }else{
         //It worked
+        Wire.beginTransmission(address);
+        Wire.write(outputPortReg);
+        Wire.write(0);
+        byte commandStatus = Wire.endTransmission();
+        if(commandStatus != 0){
+            Serial.println("set output port all off");
+            return;
+        }else{
+            //It Worked
+            return;
+        }
         return true;
     }
 }
