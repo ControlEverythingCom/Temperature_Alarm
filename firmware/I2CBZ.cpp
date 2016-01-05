@@ -20,12 +20,12 @@ bool I2CBZ::initialize(int directionReg){
         byte commandStatus = Wire.endTransmission();
         if(commandStatus != 0){
             Serial.println("set output port all off");
-            return;
+            return false;
         }else{
             //It Worked
-            return;
+            return true;
         }
-        return true;
+        
     }
 }
 
