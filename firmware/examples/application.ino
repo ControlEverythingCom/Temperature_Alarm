@@ -1,10 +1,4 @@
-// This #include statement was automatically added by the Particle IDE.
-//#include "I2CBZ.h"
-
-// This #include statement was automatically added by the Particle IDE.
-//#include "SI7020_A20.h"
-
-#include <Temperature_Alarm.h>
+"Temperature_Alarm/Temperature_Alarm.h"
 
 SI7020_A20 tempSensor;
 I2CBZ buzzer;
