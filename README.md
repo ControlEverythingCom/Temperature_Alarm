@@ -1,5 +1,7 @@
 # About
 
+In this article we will setup a Particle Photon module to monitor temperature throught the SI7020-A20 temperature/humidity mini module sensor.  Based on readings from this sensor we will turn on a buzzer alarm to warn the user of a high or low temperature.
+
 This Library is intended to be used in conjunction with the Control Anything article Temperature_Alarm.
 
 The intention of this library is to make use of the SI7020-A20 Temperature/Humidity Sensor and PCA9536_I2CBZ I²C Mini Modules with Particle development web IDE as simple as possible for users.
